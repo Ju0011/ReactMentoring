@@ -1,0 +1,15 @@
+.input-required{
+    font-size: 10px;
+}
+
+.input-wrapper{
+    padding-top: 15px;
+    text-align: center;
+}
+
+.input{
+    font-size: 15px;
+    padding: 10px 15px;
+    color: #bdb8b8;
+    border-radius: 5px;
+}

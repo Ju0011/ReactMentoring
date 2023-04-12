@@ -7,9 +7,9 @@ const Input = ({ title, required, type, placeholder }) => {
         <div className="input-wrapper">
             <div>
                 <label>{title}</label>
-                {required && (<div className="Input-required">필수 <span style={{ color: 'red' }}>*</span></div>)}
+                {required && (<div className="input-required">필수 <span style={{ color: 'red' }}>*</span></div>)}
             </div>
-            <input className="input" required={required} type={type} placeholder={placeholder+ " 입력하시오"} />
+            <input className="input" required={required} type={type} placeholder={title+ " 입력하시오"} />
         </div>
     );
 };

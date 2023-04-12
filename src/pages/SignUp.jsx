@@ -8,7 +8,6 @@ const SignUp = () => {
         <div className="form-wrapper">
             <h1>회원가입</h1>
             <form className="form">
-                <h1>회원가입</h1>
                 <Input title="이메일" type="email" required></Input>
                 <Input title="비밀번호" type="password" required></Input>
                 <Input title="비밀번호 재확인" type="password" required></Input>
