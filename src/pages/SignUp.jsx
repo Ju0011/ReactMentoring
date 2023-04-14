@@ -5,12 +5,13 @@ import './SignUp.css';
 
 
 
-const SignUp = () => {
+const Test = () => {
     
     const [values, setValues] = useState({
+        
         email: "",
-        password: "",
-        passwordCheck: "",
+        pw: "",
+        pwCheck: "",
         name: "",
         age: ""
     })  
@@ -27,18 +28,31 @@ const SignUp = () => {
         alert(values.name + " 님 환영합니다!");
     }
     
-    const HandleChange = (e) => {          
+    const HandleChange = (e) => {  
+            
         setValues({
             ...values,
-            [e.target.name]: e.target.value,
+            [e.target.id]: e.target.value,
         })
+        
         
         //setValue(e.target.value);
     }
 
+    const onReset = (e) => {
+        setValues({
+            email: "",
+            pw: "",
+            pwCheck: "",
+            name: "",
+            age: ""
+        })
+        
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault() //submit 관련 고유 동작 중단시키기
-        //console.log(JSON.stringify(values, null, 2))
+        console.log(JSON.stringify(values, null, 2))
         
     }
 
@@ -47,21 +61,22 @@ const SignUp = () => {
             <h1>회원가입</h1>
             <form className="form" onSubmit={handleSubmit}>
 
-                <Input title="이메일" type="email" required onChange={HandleChange} value={values.email}></Input>
-                <Input title="비밀번호" type="password" required onChange={HandleChange} value={values.password}></Input>
-                <Input title="비밀번호 재확인" type="password" required onChange={HandleChange} value={values.passwordCheck}></Input>
-                {values.password !== values.passwordCheck && <span style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</span>}
+                <Input id="email" title="이메일" type="email" required HandleChange={HandleChange} value={values.email}></Input>
+                <Input id="pw" title="비밀번호" type="password" required HandleChange={HandleChange} value={values.pw}></Input>
+                <Input id="pwCheck" title="비밀번호 재확인" type="password" required HandleChange={HandleChange} value={values.pwCheck}></Input>
+                {values.pw !== values.pwCheck && <span style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</span>}
 
-                <Input title="이름" type="text" onChange={HandleChange} value={values.name}></Input>
-                <Input title="나이" type="number" onChange={HandleChange} value={values.age}></Input>
+                <Input id="name" title="이름" type="text" HandleChange={HandleChange} value={values.name}></Input>
+                <Input id="age" title="나이" type="number" HandleChange={HandleChange} value={values.age}></Input>
 
                 <div
                     style={{ marginTop: "30px" }}>
                     <button className="btn" type="submit" onClick={BtnCheck}>가입하기</button>
+                    <button className="btn" onClick={onReset}>초기화</button>
                 </div>
             </form>
         </div>
     );
 };
 
-export default SignUp;
+export default Test;
